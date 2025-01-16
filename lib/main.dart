@@ -28,7 +28,7 @@ class BeastTraining extends StatelessWidget {
           titleTextStyle: TextStyle(
             color: Color.fromARGB(255, 28, 28, 28),
             fontWeight: FontWeight.w600,
-            fontSize: 26,
+            fontSize: 25,
           ),
         ),
         textTheme: TextTheme(
