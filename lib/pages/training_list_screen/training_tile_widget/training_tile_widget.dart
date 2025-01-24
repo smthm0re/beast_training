@@ -17,16 +17,17 @@ class TrainingTileWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 25.0, right: 25.0, top: 25.0),
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
       child: Slidable(
         endActionPane: ActionPane(
-          motion: ScrollMotion(),
+          motion: StretchMotion(),
           children: [
             SlidableAction(
               onPressed: deleteTraining,
-              icon: Icons.delete,
-              backgroundColor: Colors.red.shade300,
-              borderRadius: BorderRadius.circular(18),
+              icon: Icons.delete_outline,
+              backgroundColor: Colors.red.shade400,
+              foregroundColor: Colors.white,
+              borderRadius: BorderRadius.circular(12),
             ),
           ],
         ),
@@ -36,8 +37,8 @@ class TrainingTileWidget extends StatelessWidget {
           ),
           leading: SvgPicture.asset(
             'assets/svg/dumbbell.svg',
-            height: 30,
-            width: 30,
+            height: 40,
+            width: 40,
           ),
           title: Text(
             dateTraining,

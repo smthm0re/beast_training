@@ -13,7 +13,8 @@ class BeastTrainingApp extends StatelessWidget {
       theme: theme,
       routes: {
         '/training_list_screen/': (context) => const TrainingListScreen(),
-        '/training_structure_screen/': (context) => const TrainingStructureScreen(),
+        '/training_structure_screen/': (context) =>
+            const TrainingStructureScreen(),
       },
       initialRoute: '/training_list_screen/',
     );
