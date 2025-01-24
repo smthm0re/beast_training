@@ -33,10 +33,24 @@ final theme = ThemeData(
       color: Color.fromARGB(255, 255, 255, 255),
       fontSize: 18,
       fontWeight: FontWeight.bold,
+      shadows: [
+        Shadow(
+          offset: Offset(2.0, 2.0),
+          blurRadius: 4.0,
+          color: Colors.black26,
+        ),
+      ],
     ),
     bodySmall: const TextStyle(
       color: Color.fromARGB(255, 199, 207, 214),
       fontSize: 14,
+      shadows: [
+        Shadow(
+          offset: Offset(2.0, 2.0),
+          blurRadius: 4.0,
+          color: Colors.black26,
+        ),
+      ],
     ),
   ),
 );
