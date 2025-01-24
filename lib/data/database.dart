@@ -1,12 +1,12 @@
 import 'package:hive/hive.dart';
 
-class ToDoDataBase {
+class TrainingDataBase {
   List trainingList = [];
 
   final _trainingBox = Hive.box("trainingBox");
 
   void createInitialData() {
-    trainingList = ['Тренировка №1', 'Тренировка №2'];
+    trainingList = ['Тренировка №1'];
   }
 
   void loadData() {

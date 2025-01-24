@@ -2,15 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_svg/svg.dart';
 
-class TrainingTile extends StatelessWidget {
-  TrainingTile({
+class TrainingTileWidget extends StatelessWidget {
+  final String idTraining;
+  final String dateTraining;
+  Function(BuildContext)? deleteTraining;
+
+  TrainingTileWidget({
     super.key,
-    required this.trainingNumber,
+    required this.idTraining,
+    required this.dateTraining,
     required this.deleteTraining,
   });
-
-  final String trainingNumber;
-  Function(BuildContext)? deleteTraining;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +20,7 @@ class TrainingTile extends StatelessWidget {
       padding: const EdgeInsets.only(left: 25.0, right: 25.0, top: 25.0),
       child: Slidable(
         endActionPane: ActionPane(
-          motion: StretchMotion(),
+          motion: ScrollMotion(),
           children: [
             SlidableAction(
               onPressed: deleteTraining,
@@ -29,25 +31,26 @@ class TrainingTile extends StatelessWidget {
           ],
         ),
         child: ListTile(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(18),
+          ),
           leading: SvgPicture.asset(
             'assets/svg/dumbbell.svg',
             height: 30,
             width: 30,
           ),
           title: Text(
-            '01.01.2025',
+            dateTraining,
             style: Theme.of(context).textTheme.bodySmall,
           ),
           subtitle: Text(
-            trainingNumber,
+            idTraining,
             style: Theme.of(context).textTheme.bodyMedium,
           ),
-          trailing: const Icon(Icons.arrow_forward_ios),
+          trailing: const Icon(Icons.chevron_right),
           onTap: () {
             Navigator.of(context).pushNamed(
-              '/training',
+              '/training_structure_screen/',
             );
           },
         ),
