@@ -34,7 +34,7 @@ class _TrainingListScreenState extends State<TrainingListScreen> {
     setState(() {
       dataBaseTrainingList.trainingList.add(newTraining);
       dataBaseTrainingList.trainingList
-          .sort((a, b) => b.date.compareTo(a.date));
+          .sort((a, b) => b.id.compareTo(a.id));
       dataBaseTrainingList.updateDataBase();
     });
   }
