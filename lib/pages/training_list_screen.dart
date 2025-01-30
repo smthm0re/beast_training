@@ -75,7 +75,7 @@ class _TrainingListScreenState extends State<TrainingListScreen> {
       floatingActionButton: FloatingActionButton(
         onPressed: addTraining,
         tooltip: 'Добавить тренировку',
-        child: const Icon(Icons.add),
+        child: const Icon(Icons.add_circle),
       ),
     );
   }

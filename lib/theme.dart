@@ -3,50 +3,36 @@ import 'package:flutter/material.dart';
 final theme = ThemeData(
   primarySwatch: Colors.red,
   listTileTheme: const ListTileThemeData(
-    iconColor: Color.fromARGB(255, 255, 255, 255),
-    tileColor: Color.fromARGB(255, 34, 45, 67),
+    iconColor: Color.fromARGB(255, 0, 0, 0),
+    tileColor: Color.fromARGB(255, 241, 241, 241),
   ),
   floatingActionButtonTheme: const FloatingActionButtonThemeData(
-    backgroundColor: Color.fromARGB(255, 95, 156, 98),
-    foregroundColor: Color.fromARGB(255, 34, 45, 67),
+    backgroundColor: Color.fromARGB(255, 55, 173, 87),
+    foregroundColor: Colors.white,
   ),
-  scaffoldBackgroundColor: Colors.white,
+  scaffoldBackgroundColor: const Color.fromARGB(255, 220, 223, 225),
   appBarTheme: const AppBarTheme(
     iconTheme: IconThemeData(
-      color: Colors.black,
+      color: Color.fromARGB(255, 0, 0, 0),
     ),
-    // centerTitle: true,
-    backgroundColor: Colors.white,
+    backgroundColor: Color.fromARGB(255, 241, 241, 241),
     titleTextStyle: TextStyle(
-      color: Color.fromARGB(255, 95, 156, 98),
-      fontWeight: FontWeight.bold,
+      color: Color.fromARGB(255, 55, 173, 87),
+      fontWeight: FontWeight.w600,
       fontSize: 22,
     ),
   ),
   fontFamily: 'Poppins',
   textTheme: TextTheme(
     bodyMedium: const TextStyle(
-      color: Color.fromARGB(255, 255, 255, 255),
+      color: Color.fromARGB(255, 0, 0, 0),
       fontSize: 18,
-      fontWeight: FontWeight.bold,
-      shadows: [
-        Shadow(
-          offset: Offset(2.0, 2.0),
-          blurRadius: 4.0,
-          color: Colors.black26,
-        ),
-      ],
+      fontWeight: FontWeight.w500,
     ),
     bodySmall: const TextStyle(
-      color: Color.fromARGB(255, 199, 207, 214),
-      fontSize: 14,
-      shadows: [
-        Shadow(
-          offset: Offset(2.0, 2.0),
-          blurRadius: 4.0,
-          color: Colors.black26,
-        ),
-      ],
+      color: Color.fromARGB(255, 0, 0, 0),
+      fontSize: 15,
+      fontWeight: FontWeight.w500,
     ),
   ),
 );

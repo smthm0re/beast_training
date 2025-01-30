@@ -16,46 +16,39 @@ class TrainingTileWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-      child: Slidable(
-        endActionPane: ActionPane(
-          motion: StretchMotion(),
-          children: [
-            SlidableAction(
-              onPressed: deleteTraining,
-              icon: Icons.delete_outline,
-              backgroundColor: Colors.red.shade400,
-              foregroundColor: Colors.white,
-              borderRadius: BorderRadius.circular(12),
-            ),
-          ],
+    return Slidable(
+      endActionPane: ActionPane(
+        motion: const StretchMotion(),
+        children: [
+          SlidableAction(
+            onPressed: deleteTraining,
+            icon: Icons.delete_outline,
+            backgroundColor: Colors.red.shade400,
+            foregroundColor: Colors.white,
+          ),
+        ],
+      ),
+      child: ListTile(
+        leading: SvgPicture.asset(
+          'lib/ui-kit/assets/svg/dumbbell.svg',
+          height: 40,
+          width: 40,
         ),
-        child: ListTile(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(18),
-          ),
-          leading: SvgPicture.asset(
-            'lib/ui-kit/assets/svg/dumbbell.svg',
-            height: 40,
-            width: 40,
-          ),
-          title: Text(
-            dateTraining,
-            style: Theme.of(context).textTheme.bodySmall,
-          ),
-          subtitle: Text(
-            idTraining,
-            style: Theme.of(context).textTheme.bodyMedium,
-          ),
-          trailing: const Icon(Icons.chevron_right),
-          onTap: () {
-            Navigator.of(context).pushNamed(
-              '/training_structure_screen/',
-              arguments: idTraining,
-            );
-          },
+        title: Text(
+          dateTraining,
+          style: Theme.of(context).textTheme.bodySmall,
         ),
+        subtitle: Text(
+          idTraining,
+          style: Theme.of(context).textTheme.bodyMedium,
+        ),
+        trailing: const Icon(Icons.chevron_right),
+        onTap: () {
+          Navigator.of(context).pushNamed(
+            '/training_structure_screen/',
+            arguments: idTraining,
+          );
+        },
       ),
     );
   }
