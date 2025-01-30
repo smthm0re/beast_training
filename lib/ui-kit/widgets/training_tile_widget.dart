@@ -36,7 +36,7 @@ class TrainingTileWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(18),
           ),
           leading: SvgPicture.asset(
-            'assets/svg/dumbbell.svg',
+            'lib/ui-kit/assets/svg/dumbbell.svg',
             height: 40,
             width: 40,
           ),

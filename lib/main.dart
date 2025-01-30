@@ -1,4 +1,4 @@
-import 'package:beast_training/app/beast_training_app.dart';
+import 'package:beast_training/beast_training_app.dart';
 import 'package:beast_training/models/exercise.dart';
 import 'package:beast_training/models/training.dart';
 import 'package:flutter/material.dart';

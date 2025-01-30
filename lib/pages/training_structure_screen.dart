@@ -1,6 +1,6 @@
 import 'package:beast_training/models/exercise.dart';
 import 'package:flutter/material.dart';
-import 'package:beast_training/data/exercise_list_database/exercise_list_database.dart';
+import 'package:beast_training/data/exercise_list_database.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 class TrainingStructureScreen extends StatefulWidget {
