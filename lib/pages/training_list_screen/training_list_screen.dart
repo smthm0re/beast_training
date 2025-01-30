@@ -1,4 +1,5 @@
 import 'package:beast_training/data/training_list_database/training_list_database.dart';
+import 'package:beast_training/models/training.dart';
 import 'package:beast_training/pages/training_list_screen/training_tile_widget/training_tile_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -33,8 +34,7 @@ class _TrainingListScreenState extends State<TrainingListScreen> {
     );
     setState(() {
       dataBaseTrainingList.trainingList.add(newTraining);
-      dataBaseTrainingList.trainingList
-          .sort((a, b) => b.id.compareTo(a.id));
+      dataBaseTrainingList.trainingList.sort((a, b) => b.id.compareTo(a.id));
       dataBaseTrainingList.updateDataBase();
     });
   }

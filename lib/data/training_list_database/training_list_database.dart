@@ -1,20 +1,5 @@
+import 'package:beast_training/models/training.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-
-part 'training_list_database.g.dart';
-
-@HiveType(typeId: 1)
-class Training {
-  @HiveField(0)
-  final int id;
-
-  @HiveField(1)
-  final DateTime date;
-
-  Training({
-    required this.id,
-    required this.date,
-  });
-}
 
 class TrainingListDataBase {
   List trainingList = [];

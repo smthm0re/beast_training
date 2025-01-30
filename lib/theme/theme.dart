@@ -12,6 +12,9 @@ final theme = ThemeData(
   ),
   scaffoldBackgroundColor: Color.fromARGB(255, 18, 22, 30),
   appBarTheme: AppBarTheme(
+    iconTheme: IconThemeData(
+      color: Colors.white,
+    ),
     centerTitle: true,
     backgroundColor: const Color.fromARGB(255, 26, 32, 44),
     titleTextStyle: TextStyle(
