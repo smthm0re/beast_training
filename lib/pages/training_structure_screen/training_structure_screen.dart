@@ -39,7 +39,6 @@ class _TrainingStructureScreenState extends State<TrainingStructureScreen> {
           _exerciseBox.get(idTraining) ?? [],
         );
       }
-
       setState(() {});
     }
   }
@@ -56,7 +55,6 @@ class _TrainingStructureScreenState extends State<TrainingStructureScreen> {
       _exerciseBox.put(idTraining, exercises);
       exerciseListDataBase.exerciseList = exercises;
     });
-
     Navigator.of(context).pop();
   }
 
@@ -75,44 +73,54 @@ class _TrainingStructureScreenState extends State<TrainingStructureScreen> {
             children: [
               // Выбор упражнения
               DropdownButtonFormField<String>(
-                decoration: InputDecoration(labelText: 'Выберите упражнение'),
-                items: allExercises.map((exercise) {
-                  return DropdownMenuItem(
-                    value: exercise,
-                    child: Text(exercise),
-                  );
-                }).toList(),
+                decoration:
+                    InputDecoration(labelText: 'Выберите упражнение из списка'),
+                items: allExercises.map(
+                  (exercise) {
+                    return DropdownMenuItem(
+                      value: exercise,
+                      child: Text(exercise),
+                    );
+                  },
+                ).toList(),
                 onChanged: (value) {
-                  setState(() {
-                    selectedExercise = value!;
-                  });
+                  setState(
+                    () {
+                      selectedExercise = value!;
+                    },
+                  );
                 },
               ),
+
               // Ввод количества подходов
               TextField(
                 controller: setsController,
                 decoration: InputDecoration(labelText: 'Количество подходов'),
                 keyboardType: TextInputType.number,
               ),
+
               // Ввод количества повторений
               TextField(
                 controller: repsController,
                 decoration: InputDecoration(labelText: 'Количество повторений'),
                 keyboardType: TextInputType.number,
               ),
+
               // Кнопка для добавления упражнения
               ElevatedButton(
                 onPressed: () {
-                  final sets = int.tryParse(setsController.text) ?? 0;
-                  final reps = int.tryParse(repsController.text) ?? 0;
+                  final sets = int.tryParse(setsController.text);
+                  final reps = int.tryParse(repsController.text);
 
-                  if (sets > 0 && reps > 0) {
-                    addExercise(selectedExercise, sets, reps);
-                  } else {
+                  if (sets == null || reps == null || sets <= 0 || reps <= 0) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(
-                          content: Text('Введите корректные значения')),
+                        content: Text('Введите корректные значения'),
+                      ),
                     );
+                    Navigator.pop(context);
+                  } else {
+                    addExercise(selectedExercise, sets, reps);
                   }
                 },
                 child: const Text('Добавить упражнение'),
@@ -126,12 +134,9 @@ class _TrainingStructureScreenState extends State<TrainingStructureScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final String idTraining =
-        ModalRoute.of(context)!.settings.arguments as String;
-
     return Scaffold(
       appBar: AppBar(
-        title: Text(idTraining),
+        title: Text(idTraining!),
       ),
       body: exerciseListDataBase.exerciseList.isEmpty
           ? const Center(child: Text('Добавьте упражнения'))
@@ -140,9 +145,14 @@ class _TrainingStructureScreenState extends State<TrainingStructureScreen> {
               itemBuilder: (context, index) {
                 final exercise = exerciseListDataBase.exerciseList[index];
                 return ListTile(
-                  title: Text(exercise.name),
+                  title: Text(
+                    exercise.name,
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
                   subtitle: Text(
-                      'Подходы: ${exercise.sets} Повторения: ${exercise.reps}'),
+                    'Подходы: ${exercise.sets} Повторения: ${exercise.reps}',
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
                   trailing: IconButton(
                     icon: const Icon(Icons.delete, color: Colors.red),
                     onPressed: () {
@@ -154,8 +164,6 @@ class _TrainingStructureScreenState extends State<TrainingStructureScreen> {
                             _exerciseBox.get(idTraining) ?? []);
                         exercises.removeAt(index);
                         _exerciseBox.put(idTraining, exercises);
-                        // exerciseListDataBase.exerciseList.removeAt(index);
-                        // exerciseListDataBase.updateDataBase();
                       });
                     },
                   ),
