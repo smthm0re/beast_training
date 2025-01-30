@@ -59,7 +59,7 @@ class _TrainingListScreenState extends State<TrainingListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Список тренировок'),
+        title: const Text('BeastTrainingApp'),
       ),
       body: ListView.builder(
         itemCount: dataBaseTrainingList.trainingList.length,

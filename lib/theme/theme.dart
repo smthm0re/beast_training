@@ -10,24 +10,17 @@ final theme = ThemeData(
     backgroundColor: Color.fromARGB(255, 95, 156, 98),
     foregroundColor: Color.fromARGB(255, 34, 45, 67),
   ),
-  scaffoldBackgroundColor: Color.fromARGB(255, 18, 22, 30),
-  appBarTheme: AppBarTheme(
+  scaffoldBackgroundColor: Colors.white,
+  appBarTheme: const AppBarTheme(
     iconTheme: IconThemeData(
-      color: Colors.white,
+      color: Colors.black,
     ),
-    centerTitle: true,
-    backgroundColor: const Color.fromARGB(255, 26, 32, 44),
+    // centerTitle: true,
+    backgroundColor: Colors.white,
     titleTextStyle: TextStyle(
-      color: const Color.fromARGB(255, 255, 255, 255),
+      color: Color.fromARGB(255, 95, 156, 98),
       fontWeight: FontWeight.bold,
       fontSize: 22,
-      shadows: [
-        Shadow(
-          offset: Offset(2.0, 2.0),
-          blurRadius: 4.0,
-          color: Colors.black26,
-        ),
-      ],
     ),
   ),
   fontFamily: 'Poppins',
