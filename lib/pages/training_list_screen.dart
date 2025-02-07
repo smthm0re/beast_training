@@ -35,8 +35,7 @@ class _TrainingListScreenState extends State<TrainingListScreen> {
         children: [
           LogoImageWidget(
             color: Color.fromARGB(255, 241, 241, 241),
-            imageWidth: 150,
-            imageHeight: 150,
+            imageSize: 150,
           ),
           TextCenterWidget(
             color: Color.fromARGB(255, 241, 241, 241),

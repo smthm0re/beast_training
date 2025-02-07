@@ -3,14 +3,12 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class LogoImageWidget extends StatelessWidget {
   final Color color;
-  final double imageWidth;
-  final double imageHeight;
+  final double imageSize;
 
   const LogoImageWidget({
     super.key,
     required this.color,
-    required this.imageWidth,
-    required this.imageHeight,
+    required this.imageSize,
   });
 
   @override
@@ -20,8 +18,8 @@ class LogoImageWidget extends StatelessWidget {
       color: color,
       child: SvgPicture.asset(
         'lib/ui-kit/assets/svg/beast_logo.svg',
-        width: imageWidth,
-        height: imageHeight,
+        width: imageSize,
+        height: imageSize,
       ),
     );
   }
