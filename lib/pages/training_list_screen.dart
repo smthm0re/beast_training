@@ -47,14 +47,14 @@ class _TrainingListScreenState extends State<TrainingListScreen> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
+        tooltip: 'Добавить тренировку',
+        elevation: 4,
+        child: const Icon(Icons.add_circle),
         onPressed: () {
           setState(() {
             trainingDataBase.addTraining();
           });
         },
-        tooltip: 'Добавить тренировку',
-        elevation: 4,
-        child: const Icon(Icons.add_circle),
       ),
     );
   }

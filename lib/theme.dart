@@ -12,6 +12,7 @@ final theme = ThemeData(
   ),
   scaffoldBackgroundColor: const Color.fromARGB(255, 241, 241, 241),
   appBarTheme: const AppBarTheme(
+    scrolledUnderElevation: 0,
     iconTheme: IconThemeData(
       color: Color.fromARGB(255, 0, 0, 0),
     ),
