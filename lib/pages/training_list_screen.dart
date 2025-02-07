@@ -1,8 +1,9 @@
 import 'package:beast_training/data/training_list_database.dart';
-import 'package:beast_training/ui-kit/widgets/training_tile_widget.dart';
+import 'package:beast_training/ui-kit/widgets/logo_image_widget.dart';
+import 'package:beast_training/ui-kit/widgets/text_center_widget.dart';
+import 'package:beast_training/ui-kit/widgets/training_list_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:intl/intl.dart';
 
 class TrainingListScreen extends StatefulWidget {
   const TrainingListScreen({super.key});
@@ -13,14 +14,13 @@ class TrainingListScreen extends StatefulWidget {
 
 class _TrainingListScreenState extends State<TrainingListScreen> {
   final _trainingBox = Hive.box("defaultBox");
-  TrainingListDataBase dataBaseTrainingList = TrainingListDataBase();
 
   @override
   void initState() {
     if (_trainingBox.get("trainingListBox") == null) {
-      dataBaseTrainingList.createInitialData();
+      trainingDataBase.createInitialData();
     } else {
-      dataBaseTrainingList.loadData();
+      trainingDataBase.loadData();
     }
     super.initState();
   }
@@ -31,28 +31,30 @@ class _TrainingListScreenState extends State<TrainingListScreen> {
       appBar: AppBar(
         title: const Text('BeastTrainingApp'),
       ),
-      body: ListView.builder(
-        itemCount: dataBaseTrainingList.trainingList.length,
-        itemBuilder: (context, index) {
-          final training = dataBaseTrainingList.trainingList[index];
-          return TrainingTileWidget(
-            idTraining: "Тренировка № ${training.id}",
-            dateTraining: DateFormat('dd.MM.yyyy').format(training.date),
-            deleteTraining: (context) {
-              setState(() {
-                dataBaseTrainingList.deleteTraining(index);
-              });
-            },
-          );
-        },
+      body: Column(
+        children: [
+          LogoImageWidget(
+            color: Color.fromARGB(255, 241, 241, 241),
+            imageWidth: 150,
+            imageHeight: 150,
+          ),
+          TextCenterWidget(
+            color: Color.fromARGB(255, 241, 241, 241),
+            text: 'Список тренировок',
+          ),
+          Expanded(
+            child: TrainingListWidget(),
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           setState(() {
-            dataBaseTrainingList.addTraining();
+            trainingDataBase.addTraining();
           });
         },
         tooltip: 'Добавить тренировку',
+        elevation: 4,
         child: const Icon(Icons.add_circle),
       ),
     );

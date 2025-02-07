@@ -1,6 +1,8 @@
 import 'package:beast_training/models/training.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
+TrainingListDataBase trainingDataBase = TrainingListDataBase();
+
 class TrainingListDataBase {
   List trainingList = [];
 

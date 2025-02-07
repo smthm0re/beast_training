@@ -23,7 +23,7 @@ class TrainingTileWidget extends StatelessWidget {
           SlidableAction(
             onPressed: deleteTraining,
             label: "УДАЛИТЬ",
-            backgroundColor: Color.fromARGB(255, 253, 51, 54),
+            backgroundColor: Color.fromARGB(255, 235, 102, 91),
           ),
         ],
       ),
