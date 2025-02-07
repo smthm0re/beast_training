@@ -22,9 +22,8 @@ class TrainingTileWidget extends StatelessWidget {
         children: [
           SlidableAction(
             onPressed: deleteTraining,
-            icon: Icons.delete_outline,
-            backgroundColor: Colors.red.shade400,
-            foregroundColor: Colors.white,
+            label: "УДАЛИТЬ",
+            backgroundColor: Color.fromARGB(255, 253, 51, 54),
           ),
         ],
       ),

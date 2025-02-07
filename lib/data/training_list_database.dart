@@ -13,6 +13,7 @@ class TrainingListDataBase {
         date: DateTime.now(),
       ),
     ];
+    updateDataBase();
   }
 
   void loadData() {
@@ -21,5 +22,29 @@ class TrainingListDataBase {
 
   void updateDataBase() {
     _trainingBox.put("trainingListBox", trainingList);
+  }
+
+  void addTraining() {
+    final Training newTraining = Training(
+      id: trainingList.length + 1,
+      date: DateTime.now(),
+    );
+    trainingList.add(newTraining);
+    trainingList.sort((a, b) => b.id.compareTo(a.id));
+    updateDataBase();
+  }
+
+  void deleteTraining(int index) {
+    final int deletedIdTraining = trainingList[index].id;
+    trainingList.removeAt(index);
+    for (int i = 0; i < trainingList.length; i++) {
+      if (trainingList[i].id > deletedIdTraining) {
+        trainingList[i] = Training(
+          id: trainingList[i].id - 1,
+          date: trainingList[i].date,
+        );
+      }
+    }
+    updateDataBase();
   }
 }
