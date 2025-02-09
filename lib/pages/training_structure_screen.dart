@@ -13,7 +13,6 @@ class TrainingStructureScreen extends StatefulWidget {
 
 class _TrainingStructureScreenState extends State<TrainingStructureScreen> {
   final _exerciseBox = Hive.box("exerciseBox");
-  ExerciseListDataBase exerciseListDataBase = ExerciseListDataBase();
 
   String? idTraining;
 
@@ -71,7 +70,6 @@ class _TrainingStructureScreenState extends State<TrainingStructureScreen> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              // Выбор упражнения
               DropdownButtonFormField<String>(
                 decoration:
                     InputDecoration(labelText: 'Выберите упражнение из списка'),
@@ -91,22 +89,16 @@ class _TrainingStructureScreenState extends State<TrainingStructureScreen> {
                   );
                 },
               ),
-
-              // Ввод количества подходов
               TextField(
                 controller: setsController,
                 decoration: InputDecoration(labelText: 'Количество подходов'),
                 keyboardType: TextInputType.number,
               ),
-
-              // Ввод количества повторений
               TextField(
                 controller: repsController,
                 decoration: InputDecoration(labelText: 'Количество повторений'),
                 keyboardType: TextInputType.number,
               ),
-
-              // Кнопка для добавления упражнения
               ElevatedButton(
                 onPressed: () {
                   final sets = int.tryParse(setsController.text);
@@ -173,7 +165,8 @@ class _TrainingStructureScreenState extends State<TrainingStructureScreen> {
       floatingActionButton: FloatingActionButton(
         onPressed: showExercisePicker,
         tooltip: 'Добавить упражнение',
-        child: const Icon(Icons.add),
+        elevation: 4,
+        child: const Icon(Icons.add_circle),
       ),
     );
   }

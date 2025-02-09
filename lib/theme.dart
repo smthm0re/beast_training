@@ -2,15 +2,19 @@ import 'package:flutter/material.dart';
 
 final theme = ThemeData(
   primarySwatch: Colors.red,
+
   listTileTheme: const ListTileThemeData(
     iconColor: Color.fromARGB(255, 0, 0, 0),
     tileColor: Color.fromARGB(255, 255, 255, 255),
   ),
+
   floatingActionButtonTheme: const FloatingActionButtonThemeData(
     backgroundColor: Color.fromARGB(255, 29, 170, 96),
     foregroundColor: Colors.white,
   ),
+
   scaffoldBackgroundColor: const Color.fromARGB(255, 241, 241, 241),
+
   appBarTheme: const AppBarTheme(
     scrolledUnderElevation: 0,
     iconTheme: IconThemeData(
@@ -23,6 +27,7 @@ final theme = ThemeData(
       fontSize: 22,
     ),
   ),
+
   fontFamily: 'Poppins',
   textTheme: TextTheme(
     bodyMedium: const TextStyle(

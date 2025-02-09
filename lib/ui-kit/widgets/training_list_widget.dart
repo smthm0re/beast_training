@@ -15,7 +15,7 @@ class _TrainingListWidgetState extends State<TrainingListWidget> {
   Widget build(BuildContext context) {
     return ListView.separated(
       separatorBuilder: (context, index) => const Divider(
-        height: 1,
+        height: 0.5,
         color: Color.fromARGB(255, 220, 223, 225),
       ),
       itemCount: trainingDataBase.trainingList.length,

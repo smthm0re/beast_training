@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 class TextCenterWidget extends StatelessWidget {
-  final Color color;
+  final Color colorBackground;
   final String text;
 
   const TextCenterWidget({
     super.key,
-    required this.color,
+    required this.colorBackground,
     required this.text,
   });
 
@@ -15,7 +15,7 @@ class TextCenterWidget extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: 50,
-      color: color,
+      color: colorBackground,
       child: Center(
         child: Text(
           text,

@@ -1,7 +1,10 @@
+import 'package:beast_training/models/exercise.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
+ExerciseListDataBase exerciseListDataBase = ExerciseListDataBase();
+
 class ExerciseListDataBase {
-  List exerciseList = [];
+  List<Exercise> exerciseList = [];
 
   final _exerciseBox = Hive.box('exerciseBox');
 
@@ -16,4 +19,8 @@ class ExerciseListDataBase {
   void updateDataBase() {
     _exerciseBox.put("exerciseListBox", exerciseList) ?? [];
   }
+
+
+
+
 }

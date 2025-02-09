@@ -34,11 +34,11 @@ class _TrainingListScreenState extends State<TrainingListScreen> {
       body: Column(
         children: [
           LogoImageWidget(
-            color: Color.fromARGB(255, 241, 241, 241),
+            colorBackground: Color.fromARGB(255, 241, 241, 241),
             imageSize: 150,
           ),
           TextCenterWidget(
-            color: Color.fromARGB(255, 241, 241, 241),
+            colorBackground: Color.fromARGB(255, 241, 241, 241),
             text: 'Список тренировок',
           ),
           Expanded(
