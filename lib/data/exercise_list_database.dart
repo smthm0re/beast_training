@@ -5,8 +5,6 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 ExerciseListDataBase exerciseListDataBase = ExerciseListDataBase();
 
-String? idTraining;
-
 final List<String> allExercises = [
   'Жим лежа',
   'Выпады',

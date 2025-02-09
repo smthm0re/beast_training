@@ -1,4 +1,5 @@
 import 'package:beast_training/models/exercise.dart';
+import 'package:beast_training/ui-kit/widgets/exercise_tile_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:beast_training/data/exercise_list_database.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -38,24 +39,14 @@ class _ExerciseScreenState extends State<ExerciseScreen> {
               itemCount: exercises.length,
               itemBuilder: (context, index) {
                 final exercise = exercises[index];
-                return ListTile(
-                  title: Text(
-                    exercise.name,
-                    style: Theme.of(context).textTheme.bodyMedium,
-                  ),
-                  subtitle: Text(
-                    'Подходы: ${exercise.sets} Повторения: ${exercise.reps}',
-                    style: Theme.of(context).textTheme.bodySmall,
-                  ),
-                  trailing: IconButton(
-                    icon: const Icon(Icons.delete, color: Colors.red),
-                    onPressed: () {
-                      setState(() {
-                        exercises.removeAt(index);
-                        _exerciseBox.put(idTraining, exercises);
-                      });
-                    },
-                  ),
+                return ExerciseTileWidget(
+                  exercise: exercise,
+                  deleteTraining: (context) {
+                    setState(() {
+                      exercises.removeAt(index);
+                      _exerciseBox.put(idTraining, exercises);
+                    });
+                  },
                 );
               },
             ),
