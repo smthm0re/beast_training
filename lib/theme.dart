@@ -11,6 +11,7 @@ final theme = ThemeData(
   floatingActionButtonTheme: const FloatingActionButtonThemeData(
     backgroundColor: Color.fromARGB(255, 29, 170, 96),
     foregroundColor: Colors.white,
+    elevation: 4,
   ),
 
   scaffoldBackgroundColor: const Color.fromARGB(255, 241, 241, 241),

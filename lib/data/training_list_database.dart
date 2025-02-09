@@ -8,6 +8,14 @@ class TrainingListDataBase {
 
   final _trainingBox = Hive.box("defaultBox");
 
+  void initializeData() {
+    if (_trainingBox.get("trainingListBox") == null) {
+      createInitialData();
+    } else {
+      loadData();
+    }
+  }
+
   void createInitialData() {
     trainingList = [
       Training(

@@ -44,7 +44,7 @@ class TrainingTileWidget extends StatelessWidget {
         trailing: const Icon(Icons.chevron_right),
         onTap: () {
           Navigator.of(context).pushNamed(
-            '/training_structure_screen/',
+            '/exercise_screen/',
             arguments: idTraining,
           );
         },

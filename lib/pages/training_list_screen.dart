@@ -3,7 +3,6 @@ import 'package:beast_training/ui-kit/widgets/logo_image_widget.dart';
 import 'package:beast_training/ui-kit/widgets/text_center_widget.dart';
 import 'package:beast_training/ui-kit/widgets/training_list_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 
 class TrainingListScreen extends StatefulWidget {
   const TrainingListScreen({super.key});
@@ -13,15 +12,9 @@ class TrainingListScreen extends StatefulWidget {
 }
 
 class _TrainingListScreenState extends State<TrainingListScreen> {
-  final _trainingBox = Hive.box("defaultBox");
-
   @override
   void initState() {
-    if (_trainingBox.get("trainingListBox") == null) {
-      trainingDataBase.createInitialData();
-    } else {
-      trainingDataBase.loadData();
-    }
+    trainingDataBase.initializeData();
     super.initState();
   }
 
@@ -48,7 +41,6 @@ class _TrainingListScreenState extends State<TrainingListScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         tooltip: 'Добавить тренировку',
-        elevation: 4,
         child: const Icon(Icons.add_circle),
         onPressed: () {
           setState(() {
