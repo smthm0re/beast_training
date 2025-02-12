@@ -4,12 +4,12 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 
 class ExerciseTileWidget extends StatelessWidget {
   final Exercise exercise;
-  Function(BuildContext)? deleteTraining;
+  Function(BuildContext)? deleteExercise;
 
   ExerciseTileWidget({
     super.key,
     required this.exercise,
-    required this.deleteTraining,
+    required this.deleteExercise,
   });
 
   @override
@@ -19,7 +19,7 @@ class ExerciseTileWidget extends StatelessWidget {
         motion: const StretchMotion(),
         children: [
           SlidableAction(
-            onPressed: deleteTraining,
+            onPressed: deleteExercise,
             label: "УДАЛИТЬ",
             backgroundColor: Color.fromARGB(255, 235, 102, 91),
           ),

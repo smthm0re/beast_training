@@ -1,10 +1,14 @@
 import 'package:beast_training/beast_training_app.dart';
+import 'package:beast_training/firebase_options.dart';
 import 'package:beast_training/models/exercise.dart';
 import 'package:beast_training/models/training.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   await Hive.initFlutter();
 
   Hive.registerAdapter(TrainingAdapter());
@@ -12,6 +16,10 @@ void main() async {
 
   await Hive.openBox("defaultBox");
   await Hive.openBox("exerciseBox");
-  
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   runApp(const BeastTrainingApp());
 }

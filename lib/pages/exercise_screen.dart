@@ -41,7 +41,7 @@ class _ExerciseScreenState extends State<ExerciseScreen> {
                 final exercise = exercises[index];
                 return ExerciseTileWidget(
                   exercise: exercise,
-                  deleteTraining: (context) {
+                  deleteExercise: (context) {
                     setState(() {
                       exercises.removeAt(index);
                       _exerciseBox.put(idTraining, exercises);

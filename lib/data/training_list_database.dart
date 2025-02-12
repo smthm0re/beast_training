@@ -47,6 +47,10 @@ class TrainingListDataBase {
   void deleteTraining(int index) {
     final int deletedIdTraining = trainingList[index].id;
     trainingList.removeAt(index);
+
+    final exerciseBox = Hive.box('exerciseBox');
+    exerciseBox.delete(deletedIdTraining.toString());
+
     for (int i = 0; i < trainingList.length; i++) {
       if (trainingList[i].id > deletedIdTraining) {
         trainingList[i] = Training(

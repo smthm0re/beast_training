@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "822717734012",
+    "project_id": "beast-training-app",
+    "storage_bucket": "beast-training-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:822717734012:android:e4d05d8af56352d595fdf9",
+        "android_client_info": {
+          "package_name": "com.example.beast_training"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5wlY-I3BmqqKaqHqUPmISPoPG5BgyIDk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
