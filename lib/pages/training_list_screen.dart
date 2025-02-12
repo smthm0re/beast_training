@@ -1,4 +1,5 @@
 import 'package:beast_training/data/training_list_database.dart';
+import 'package:beast_training/ui-kit/notification_service/notification_service.dart';
 import 'package:beast_training/ui-kit/widgets/logo_image_widget.dart';
 import 'package:beast_training/ui-kit/widgets/text_center_widget.dart';
 import 'package:beast_training/ui-kit/widgets/training_list_widget.dart';
@@ -15,6 +16,7 @@ class _TrainingListScreenState extends State<TrainingListScreen> {
   @override
   void initState() {
     trainingDataBase.initializeData();
+    notificationService.requestNotificationPermission();
     super.initState();
   }
 
@@ -26,6 +28,15 @@ class _TrainingListScreenState extends State<TrainingListScreen> {
       ),
       body: Column(
         children: [
+          ElevatedButton(
+            onPressed: () async {
+              await notificationService.showNotification(
+                title: 'Тренировка',
+                body: 'Не забудьте выполнить тренировку сегодня!',
+              );
+            },
+            child: Text('Показать уведомление'),
+          ),
           LogoImageWidget(
             colorBackground: Color.fromARGB(255, 241, 241, 241),
             imageSize: 150,
