@@ -19,7 +19,7 @@ final theme = ThemeData(
   appBarTheme: const AppBarTheme(
     scrolledUnderElevation: 0,
     iconTheme: IconThemeData(
-      color: Color.fromARGB(255, 0, 0, 0),
+      color: Color.fromARGB(255, 51, 51, 51),
     ),
     backgroundColor: Color.fromARGB(255, 241, 241, 241),
     titleTextStyle: TextStyle(

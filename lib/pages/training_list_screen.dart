@@ -1,6 +1,8 @@
 import 'package:beast_training/data/training_list_database.dart';
 import 'package:beast_training/ui-kit/notification_service/notification_service.dart';
 import 'package:beast_training/ui-kit/widgets/logo_image_widget.dart';
+import 'package:beast_training/ui-kit/widgets/notification_time_picker.dart';
+import 'package:beast_training/ui-kit/widgets/notification_widget.dart';
 import 'package:beast_training/ui-kit/widgets/text_center_widget.dart';
 import 'package:beast_training/ui-kit/widgets/training_list_widget.dart';
 import 'package:flutter/material.dart';
@@ -25,18 +27,17 @@ class _TrainingListScreenState extends State<TrainingListScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('BeastTrainingApp'),
+        actions: [
+          NotificationWidget(),
+          NotificationTimePicker(
+            notificationService: notificationService,
+            notificationTitle: 'Напоминание',
+            notificationBody: 'Не забудьте выполнить тренировку!',
+          ),
+        ],
       ),
       body: Column(
         children: [
-          ElevatedButton(
-            onPressed: () async {
-              await notificationService.showNotification(
-                title: 'Тренировка',
-                body: 'Не забудьте выполнить тренировку сегодня!',
-              );
-            },
-            child: Text('Показать уведомление'),
-          ),
           LogoImageWidget(
             colorBackground: Color.fromARGB(255, 241, 241, 241),
             imageSize: 150,
